@@ -1,0 +1,135 @@
+<!doctype html>
+	<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8">
+		<title>Edição de Produtos</title>
+		
+		<link href="content/css/bootstrap.min.css" rel="stylesheet">
+		<link href="Content/css/bootstrap-theme.min.css" rel="stylesheet">
+	</head>
+
+	<body>
+
+
+	<div class="container">
+		
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" 
+			  data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			  
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#">ADM</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav">
+				<li class="dropdown">
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" 
+				  aria-expanded="false">Cadastros <span class="caret"></span></a>
+				  <ul class="dropdown-menu">
+					<li><a href="#">Produtos</a></li>				
+				  </ul>
+				</li>
+			  </ul>
+			  <ul class="nav navbar-nav">
+				<li class="dropdown">
+				  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
+				  aria-haspopup="true" aria-expanded="false">Listas <span class="caret"></span></a>
+				  <ul class="dropdown-menu">
+					<li><a href="#">Produtos</a></li>				
+				  </ul>
+				</li>
+				<li style="float:right;"><a href="#">Sair</a></li>
+			  </ul>
+			</div>
+		</div>
+			</nav>
+				
+				<h2>Coloque as informações do produto</h2>
+					<fieldset>
+						<legend>Informe os dados do Produto: </legend>
+						<form name="cadastro" id="cadastro" action="cadastrar.php" method="post"
+						onsubmit="return validar();">
+						
+						<div class="rows">
+							<div class="col-sm-6">
+								<label for="codigo">Código do produto: </label>
+								<input type="text" name="codigo" id="codigo" 
+								class="form-control" readonly/>
+							</div>
+							<div style="clear:both;"></div>
+						</div>
+						
+							<div class="rows">
+								<div class="col-sm-6">
+									<label for="nome">Informe o Nome: </label>
+									<input type="text" name="nome" id="nome" class="form-control"/>
+									
+								</div>
+									
+								<div class="col-sm-6">
+									<label for="valor">Valor: </label>
+									<input type="text" name="valor" id="valor" class="form-control"/>
+								</div>
+								<div class="col-sm-12">
+									<label for="descri">Descrição: </label>
+									<textarea name="descri" id="descri" class="form-control"></textarea>
+								</div>
+							</div>
+							<div class="rows">
+								<div class="col-sm-12" style="text-align:left;padding-top:10px;">
+									<input type="submit" name="atualizar" id="atualizar" value="Atualizar" class="btn btn-primary"/>
+								</div>
+								
+							</div>
+						</form>
+					</fieldset>
+		</div>
+
+	</body>
+</html>
+
+<!-- Inserimos a CDN do Jquery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="content/js/bootstrap.min.js"></script>
+<script src="content/js/bootbox.min.js"></script>
+<script>
+	//Iniciamos a biblioteca Jquery
+	$(function()
+	{
+		//As ações acontecem aqui
+		
+	});
+	function validar()
+	{
+		if ($("#nome").val()=="")
+		{
+			bootbox.alert("Informe o nome do produto!");
+			$("#nome").focus();
+			return false;
+		}
+		if($("#descri").val()=="")
+		{
+			bootbox.alert("Informe a descrição!");
+			$("#descri").focus();
+			return false;
+		}
+		if($("#valor").val()=="")
+		{
+			bootbox.alert("Informe o valor!");
+			$("#valor").focus();
+			return false;
+		}
+		//fora dos ifs
+		return true;
+		bootbox.alert("Sucesso!");
+	}
+</script>

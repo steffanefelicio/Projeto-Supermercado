@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+   
+    <title>Adm Listar Log</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="content/css/bootstrap.min.css" rel="stylesheet">
+	<link href="content/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/start/jquery-ui.css">
+
+  </head>
+  <body>
+  <div class="container">
+		<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">ADM</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Produtos</a></li>
+            <li><a href="#">Usuários</a></li>            
+          </ul>
+        </li>
+      </ul>      
+      <ul class="nav navbar-nav">        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Listas <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Produtos</a></li>
+            <li><a href="#">Usuários</a></li>
+            <li><a href="#">Log...</a></li>            
+          </ul>
+        </li>
+		</ul>
+      <ul class="nav navbar-nav nav navbar-right">
+		<li><a href="#">Sair...</a></li>
+	  </ul>	  
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+  <h2>#Lista de Log</h2>
+		<div class="container">
+			<fieldset>
+				<legend>Filtro de Log:</legend>
+				<form name="filtro" id="filtro" action="" method="post">
+					<div class="rows">
+						<div class="col-sm-6">
+							<label>Data inicial:</label>
+							<input type="text" name="dataIni" id="dataIni" class="form-control"/>
+						</div>							
+						<div class="col-sm-6">
+							<label>Data final:</label>
+							<input type="text" name="dataFim" id="dataFim" class="form-control"/>
+						</div>
+					</div>					
+					<div class="rows">
+						<div class="col-sm-12" style="text-align:right;">
+							</br>					
+							<input type="submit" name="buscar" id="buscar" value="Buscar..." class="btn btn-primary"/>
+						</div>					
+					</div>					
+				</form>
+			</fieldset>
+			
+		</div>
+		<div class="container">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Usuario</th>
+						<th>Tipo</th>
+						<th>Data</th>					
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>eu</td>
+						<td>alteração</td>
+						<td>03/07/2017</td>					
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="6">Total de Registros:</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+    </div>   
+  </body>
+</html>
+<!-- Inserimos os Links do Bootstrap e Jquery-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="Content/js/jquery.maskedinput.min.js"></script><!--Source ou src = arquivo fonte-->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- Fim! -->
+
+<script>
+//Mandamos iniciar o Jquery
+	$(function(){
+		//Criamos uma mascara para data
+		$("#dataIni").mask("99/99/9999");
+		$("#dataFim").mask("99/99/9999");
+	
+		$("#dataIni").datepicker();
+		$("#dataFim").datepicker();
+	
+	});
+</script>
